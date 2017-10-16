@@ -8,7 +8,7 @@ document.getElementById('loadQuote').addEventListener("click", printQuote, false
 var viewedQuotes = [];
 
 // Changes quote every X seconds
-// var intervalID = window.setInterval(printQuote, 10000);
+var intervalID = window.setInterval(printQuote, 10000);
 
 // 1. if the quotes array is empty
 // 2. the quotes array is set to equal the viewedQuotes array
@@ -33,6 +33,7 @@ function getRandomQuote() {
 // 1. calls the getRandomQuote function and stores it in a variable named printQuote
 // 2. create a variable named HTML and concatenates the string into a message to display in the HTML
 // 3. use array.property to access the specific element in the array
+// 4. create if statements to display quote citation or date, if available
 function printQuote() {
   var printQuote = getRandomQuote();
   var HTML = '';
