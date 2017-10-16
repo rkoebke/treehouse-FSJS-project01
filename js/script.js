@@ -8,7 +8,7 @@ document.getElementById('loadQuote').addEventListener("click", printQuote, false
 var viewedQuotes = [];
 
 // Changes quote every X seconds
-var intervalID = window.setInterval(printQuote, 10000);
+// var intervalID = window.setInterval(printQuote, 10000);
 
 // 1. if the quotes array is empty
 // 2. the quotes array is set to equal the viewedQuotes array
@@ -31,14 +31,23 @@ function getRandomQuote() {
 }
 
 // 1. calls the getRandomQuote function and stores it in a variable named printQuote
-// 2. create a variable named HTML and concatenate the string into a message to display in the HTML
+// 2. create a variable named HTML and concatenates the string into a message to display in the HTML
 // 3. use array.property to access the specific element in the array
 function printQuote() {
   var printQuote = getRandomQuote();
   var HTML = '';
   HTML += '<p class="quote">' + printQuote.quote + '</p>';
   HTML += '<p class="source">' + printQuote.source;
-  HTML += '<span class="title">' + printQuote.title + '</span>';
+  //HTML += '<span class="title">' + printQuote.title + '</span>';
+
+  if (printQuote.hasOwnProperty("citation")) {
+    HTML += '<span class="citation">' + printQuote.citation + '</span>';
+  }
+
+  if (printQuote.hasOwnProperty("date")) {
+    HTML += '<span class="date">' + printQuote.date + '</span>';
+  }
+
   HTML += '<span class="blog">' + printQuote.blog + '</span>';
   HTML += '</p>';
 
